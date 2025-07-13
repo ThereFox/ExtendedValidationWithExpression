@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/0LFZaa4UgojqLvljrhfA8rM0yB6x+VfpKwDVmfY9ds=",
+  "Hash": "jF6WEntmDxvkEU3B4jT9d8nBHv8jFqJ3bkz1eEOEsZw=",
   "Source": "ExtendedValidation.Example",
   "BasePath": "_content/ExtendedValidation.Example",
   "Mode": "Default",
@@ -12,10 +12,10 @@
       "Source": "ExtendedValidation.AspNet",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
       "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
       "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],
   "DiscoveryPatterns": [],

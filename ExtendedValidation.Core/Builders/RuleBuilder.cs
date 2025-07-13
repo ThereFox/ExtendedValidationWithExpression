@@ -21,7 +21,7 @@ public class RuleBuilder<TEntity> : IRuleBuilder<TEntity>, IRuleExpressionGetter
     }
     public RuleBuilder(ParameterExpression request, LabelTarget end)
     {
-        _condition = Expression.Constant(true);
+        _condition = null;
         _request = request;
         _end = end;
     }
@@ -46,12 +46,53 @@ public class RuleBuilder<TEntity> : IRuleBuilder<TEntity>, IRuleExpressionGetter
     {
         var elementsExpression = _elementsBuilders.Select(ex => ex.GetExpression()).ToArray();
         
-        var subBuilders = _conditionRulesBuilders.Select(builder => builder.GetExpression()).ToArray();
+        var subBuilders = _conditionRulesBuilders
+            .Select(builder => builder.GetExpression())
+            .ToArray();
 
-        var Block = elementsExpression.Concat(subBuilders).Aggregate((first, second) => Expression.And(first, second));
+        Expression conditionExpression = _condition;
+
+        if (elementsExpression.Length + subBuilders.Length == 0)
+        {
+            throw new InvalidCastException("Condition must have at least one element");
+        }
         
-        var ifBlock = Expression.IfThenElse(_condition, Block, Expression.Return(_end, Expression.Constant(Result.Success())));
+        if (elementsExpression.Length + subBuilders.Length > 1)
+        {
+            conditionExpression = groupConditions( elementsExpression
+                .Concat(subBuilders).ToArray());
+        }
+        else
+        {
+            conditionExpression = elementsExpression.Any() ? elementsExpression.First() : subBuilders.First();
+        }
+
+        if (_condition != null)
+        {
+            return Expression.IfThenElse(
+                _condition,
+                conditionExpression,
+                Expression.Return(
+                    _end,
+                    Expression.Constant(Result.Success())
+                    )
+                );
+        }
         
-        return ifBlock;
+        return conditionExpression;
+    }
+
+    private Expression groupConditions(Expression[] conditions)
+    {
+        if (conditions.All(ex => ex is ConditionalExpression) == false)
+        {
+            throw new InvalidCastException("is not conditional expression's");
+        }
+
+        var guards = conditions
+            .Select(ex => ex as ConditionalExpression)
+            .Select(ex => (Expression)Expression.IfThen(ex.Test, ex.IfTrue));
+
+        return Expression.Block(guards.Append(Expression.Return(_end, Expression.Constant(Result.Success()))));
     }
 }

@@ -20,18 +20,33 @@ public class ValidateService
 
         var expression = Expression.Block(builder.GetExpression(), Expression.Label(end, Expression.Constant(Result.Success())));
         
+        var delegateForSave = Expression.Lambda(expression, request);
+        
+        _requestValidators.Add(typeof(T), delegateForSave.Compile());
     }
 
+    
+    public Result Validate(object request, Type requestType)
+    {
+        var validator = _requestValidators[requestType];
+        
+        
+        var validateResult = validator.DynamicInvoke(request);
+
+        if (validateResult is Result result)
+        {
+            return result;
+        }
+
+        throw new AggregateException();
+    }
+    public Result Validate(object request)
+    {
+        return Validate(request, request.GetType());
+    }
+    
     public Result Validate<T>(T value)
     {
-        var validator = _requestValidators[typeof(T)];
-        
-        
-        var invoker = Expression.Lambda(Expression.Invoke(validator, [Expression.Constant(value)])));
-        
-        var result = validator.DynamicInvoke(value);
-        
-        return Result.Success();
-        
+        return Validate(value, typeof(T));
     }
 }

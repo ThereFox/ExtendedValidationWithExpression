@@ -5,9 +5,6 @@
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/obj/Debug/net8.0/ExtendedValidation.Example.csproj.CoreCompileInputs.cache
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/obj/Debug/net8.0/ExtendedValidation.Example.MvcApplicationPartsAssemblyInfo.cs
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/obj/Debug/net8.0/ExtendedValidation.Example.MvcApplicationPartsAssemblyInfo.cache
-/home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/bin/Debug/net8.0/ExtendedValidation.AspNet.deps.json
-/home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/bin/Debug/net8.0/ExtendedValidation.AspNet.runtimeconfig.json
-/home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/bin/Debug/net8.0/ExtendedValidation.AspNet
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/bin/Debug/net8.0/appsettings.Development.json
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/bin/Debug/net8.0/appsettings.json
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/bin/Debug/net8.0/ExtendedValidation.Example
@@ -34,3 +31,4 @@
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/obj/Debug/net8.0/ExtendedValidation.Example.pdb
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/obj/Debug/net8.0/ExtendedValidation.Example.genruntimeconfig.cache
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/obj/Debug/net8.0/ref/ExtendedValidation.Example.dll
+/home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Example/obj/Debug/net8.0/ExtendedValidation.Example.sourcelink.json

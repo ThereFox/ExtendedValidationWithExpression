@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExtendedValidation.AspNet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec15c40bf6354d7e1f42a81e1d442c2eed0b5848")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExtendedValidation.AspNet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExtendedValidation.AspNet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

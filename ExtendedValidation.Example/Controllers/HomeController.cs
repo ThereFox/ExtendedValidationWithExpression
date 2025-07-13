@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using ExtendedValidation.Example.Requests;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExtendedValidation.Example.Controllers;
@@ -12,9 +13,10 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    [HttpPost("/")]
+    public IActionResult Index([FromBody]ExampleRequest request)
     {
-        return View();
+        return Json(request);
     }
 
     public IActionResult Privacy()

@@ -10,3 +10,4 @@
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Core/obj/Debug/net8.0/refint/ExtendedValidation.Core.dll
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Core/obj/Debug/net8.0/ExtendedValidation.Core.pdb
 /home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Core/obj/Debug/net8.0/ref/ExtendedValidation.Core.dll
+/home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.Core/obj/Debug/net8.0/ExtendedValidation.Core.sourcelink.json

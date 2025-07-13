@@ -3,7 +3,11 @@ using CSharpFunctionalExtensions;
 
 namespace ExtendedValidation.Interfaces;
 
-public class ElementRuleBuilder<TValidated, TElement> : IElementRuleBuilder<TValidated, TElement>, IRuleExpressionGetter, IInvalidActionBuilder<TValidated>
+public class ElementRuleBuilder<TValidated, TElement> : 
+    IElementRuleBuilder<TValidated, TElement>, 
+    IDefinedElementRuleBuilder<TValidated, TElement>,
+    IRuleExpressionGetter, 
+    IInvalidActionBuilder<TValidated>
 {
     private readonly Expression _getValueExpression;
     
@@ -22,7 +26,7 @@ public class ElementRuleBuilder<TValidated, TElement> : IElementRuleBuilder<TVal
         _end = end;
     }
 
-    public IElementRuleBuilder<TValidated, TElement> Must(Predicate<TElement> predicate)
+    public IDefinedElementRuleBuilder<TValidated, TElement> Must(Predicate<TElement> predicate)
     {
         _checkedExpressions.Add((TElement value) => predicate(value));
         return this;
@@ -35,16 +39,35 @@ public class ElementRuleBuilder<TValidated, TElement> : IElementRuleBuilder<TVal
 
     public Expression GetExpression()
     {
-        var expressions = _checkedExpressions.Select(ex => 
+        if (_checkedExpressions.Count == 0)
+        {
+            return Expression.Return(_end, Expression.Constant(Result.Success()));
+        }
+        
+        var expressionsInvocation = _checkedExpressions.Select(ex => 
             (Expression)Expression.Invoke(ex, 
                 Expression.Invoke(_getValueExpression, _request)
                 )
-            )
-            .Aggregate((first, second) => Expression.And(first, second));
+            );
+
+        Expression expressions;
+        
+        if (expressionsInvocation.Count() == 1)
+        {
+            expressions = expressionsInvocation.First();
+        }
+        else
+        {
+            expressions = expressionsInvocation
+                .Aggregate((first, second) => Expression.And(first, second));   
+        }
         
         var success = Expression.Return(_end, Expression.Constant(Result.Success()));
+
+        var failureAction = invaliActionExpression ??
+                            Expression.Return(_end, Expression.Constant(Result.Failure("Error")));
         
-        return Expression.IfThenElse(expressions, success, invaliActionExpression);
+        return Expression.IfThen(Expression.Not(expressions), failureAction);
     }
 
     public void ReturnError()

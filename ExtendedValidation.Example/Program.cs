@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddExtendedValidation();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,11 +19,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-var service = new ValidateService();
-
-service.addValidator(new ExampleRequestValidator());
-
-var result = service.Validate<ExampleRequest>(new ExampleRequest() { Condition = true, TestValue = 12});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -29,6 +26,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.Services.RegisterValitor<ExampleRequestValidator>();
 
 app.MapControllerRoute(
     name: "default",
