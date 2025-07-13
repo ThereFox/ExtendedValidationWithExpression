@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "/0LFZaa4UgojqLvljrhfA8rM0yB6x+VfpKwDVmfY9ds=",
+  "Source": "ExtendedValidation.Example",
+  "BasePath": "_content/ExtendedValidation.Example",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "/home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.AspNet/ExtendedValidation.AspNet.csproj",
+      "Version": 2,
+      "Source": "ExtendedValidation.AspNet",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "6W4QRDGzj15LOX/rTzt7YbRbEfcamOjVScbEp7x6mXwSiX4K8GSO/uh7P/HUJDxpLJabQ8pFvLiq6Bg6gC2QIQ==",
+  "success": true,
+  "projectFilePath": "/home/therefox/RiderProjects/MicroserviceOrderService/ExtendedValidation/ExtendedValidation.AspNet/ExtendedValidation.AspNet.csproj",
+  "expectedPackageFiles": [
+    "/home/therefox/.nuget/packages/csharpfunctionalextensions/3.6.0/csharpfunctionalextensions.3.6.0.nupkg.sha512",
+    "/home/therefox/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.10/microsoft.aspnetcore.app.ref.8.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}

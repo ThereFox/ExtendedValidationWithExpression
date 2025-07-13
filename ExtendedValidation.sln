@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedValidation.Core", "ExtendedValidation.Core\ExtendedValidation.Core.csproj", "{8013B50F-B7DF-4F22-8468-C3DFC38358AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedValidation.Example", "ExtendedValidation.Example\ExtendedValidation.Example.csproj", "{95F7C36C-3BAC-46DC-9E33-80A7ABEDBC0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedValidation.AspNet", "ExtendedValidation.AspNet\ExtendedValidation.AspNet.csproj", "{5E0C07E6-1E71-4C68-9A40-71B475ED859C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8013B50F-B7DF-4F22-8468-C3DFC38358AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8013B50F-B7DF-4F22-8468-C3DFC38358AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8013B50F-B7DF-4F22-8468-C3DFC38358AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8013B50F-B7DF-4F22-8468-C3DFC38358AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F7C36C-3BAC-46DC-9E33-80A7ABEDBC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F7C36C-3BAC-46DC-9E33-80A7ABEDBC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F7C36C-3BAC-46DC-9E33-80A7ABEDBC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F7C36C-3BAC-46DC-9E33-80A7ABEDBC0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E0C07E6-1E71-4C68-9A40-71B475ED859C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E0C07E6-1E71-4C68-9A40-71B475ED859C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E0C07E6-1E71-4C68-9A40-71B475ED859C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E0C07E6-1E71-4C68-9A40-71B475ED859C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
