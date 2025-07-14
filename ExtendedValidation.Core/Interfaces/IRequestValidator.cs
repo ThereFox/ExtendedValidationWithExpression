@@ -1,4 +1,8 @@
+#region
+
 using CSharpFunctionalExtensions;
+
+#endregion
 
 namespace ExtendedValidation.Interfaces;
 

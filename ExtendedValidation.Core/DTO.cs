@@ -1,9 +1,12 @@
+#region
+
 using System.Linq.Expressions;
+
+#endregion
 
 namespace ExtendedValidation;
 
-public record DTO
-(
+public record DTO(
     Expression applyCondition,
     Expression propertySelector,
     Expression propertyCondition,

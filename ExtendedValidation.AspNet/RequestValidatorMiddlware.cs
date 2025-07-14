@@ -1,5 +1,8 @@
-using Microsoft.AspNetCore.Http.HttpResults;
+#region
+
 using Microsoft.AspNetCore.Mvc.Filters;
+
+#endregion
 
 namespace ExtendedValidation.AspNet;
 
@@ -16,23 +19,21 @@ public class RequestValidatorMiddlware : IActionFilter
     {
         var arguments = context.ActionArguments;
 
-        if(arguments.Count == 0) return;
+        if (arguments.Count == 0) return;
 
         if (arguments.Count > 1) return;
 
         var request = arguments.First().Value;
 
         Convert.ChangeType(request, arguments.First().Value.GetType());
-        
+
         var validateResult = _validateService.Validate(request);
 
         if (validateResult.IsFailure)
         {
             context.HttpContext.Response.StatusCode = 400;
             context.HttpContext.Response.WriteAsync(validateResult.Error).Wait();
-            return;
         }
-
     }
 
     public void OnActionExecuted(ActionExecutedContext context)

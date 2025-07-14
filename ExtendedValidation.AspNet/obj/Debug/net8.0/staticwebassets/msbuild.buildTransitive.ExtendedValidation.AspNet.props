@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/ExtendedValidation.AspNet.props" />
-</Project>

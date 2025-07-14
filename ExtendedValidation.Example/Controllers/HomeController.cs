@@ -1,6 +1,9 @@
-using System.Diagnostics;
+#region
+
 using ExtendedValidation.Example.Requests;
 using Microsoft.AspNetCore.Mvc;
+
+#endregion
 
 namespace ExtendedValidation.Example.Controllers;
 
@@ -14,7 +17,7 @@ public class HomeController : Controller
     }
 
     [HttpPost("/")]
-    public IActionResult Index([FromBody]ExampleRequest request)
+    public IActionResult Index([FromBody] ExampleRequest request)
     {
         return Json(request);
     }

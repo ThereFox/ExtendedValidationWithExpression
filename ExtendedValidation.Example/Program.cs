@@ -1,6 +1,9 @@
+#region
+
 using ExtendedValidation.AspNet;
-using ExtendedValidation.Example.Requests;
 using ExtendedValidation.Example.Validators;
+
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +33,7 @@ app.UseAuthorization();
 app.Services.RegisterValitor<ExampleRequestValidator>();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    "default",
+    "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

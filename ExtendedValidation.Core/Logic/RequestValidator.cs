@@ -1,5 +1,9 @@
+#region
+
 using CSharpFunctionalExtensions;
 using ExtendedValidation.Interfaces;
+
+#endregion
 
 namespace ExtendedValidation;
 
@@ -11,27 +15,21 @@ public class RequestValidator<ValidatedType> : IRequestValidator<ValidatedType>,
     {
         _rules = rules.ToList();
     }
-    
+
+    public Result Validate(object request)
+    {
+        if (request is ValidatedType typedRequest) return Result.Failure("anouther request");
+
+        return Validate((ValidatedType)request);
+    }
+
     public Result Validate(ValidatedType request)
     {
         var errors = _rules
             .Select(ex => ex.Check(request))
             .Where(ex => ex.IsFailure);
 
-        if (errors.Any())
-        {
-            return Result.Combine(errors, " , ");
-        }
+        if (errors.Any()) return Result.Combine(errors, " , ");
         return Result.Success();
     }
-
-    public Result Validate(object request)
-    {
-        if (request is ValidatedType typedRequest)
-        {
-            return Result.Failure("anouther request");
-        }
-
-        return Validate((ValidatedType)request);
-    }
-};
+}

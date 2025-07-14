@@ -1,5 +1,9 @@
+#region
+
 using ExtendedValidation.Example.Requests;
 using ExtendedValidation.Interfaces;
+
+#endregion
 
 namespace ExtendedValidation.Example.Validators;
 
@@ -13,7 +17,7 @@ public class ExampleRequestValidator : IValidator<ExampleRequest>
             .Must(ex => ex > 0)
             .InOtherCase()
             .ReturnError("TestValue must be greater than or equal to 0");
-        
+
         ruleBuilder
             .If(ex => ex.Condition)
             .Element(ex => ex.TestValue)

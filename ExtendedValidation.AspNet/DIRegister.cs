@@ -1,6 +1,8 @@
-using ExtendedValidation.Interfaces;
+#region
+
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
+
+#endregion
 
 namespace ExtendedValidation.AspNet;
 
@@ -10,23 +12,20 @@ public static class DIRegister
     {
         services.AddSingleton<ValidateService>();
 
-        services.Configure<MvcOptions>(ex =>
-            {
-                ex.Filters.Add<RequestValidatorMiddlware>();
-            }
+        services.Configure<MvcOptions>(ex => { ex.Filters.Add<RequestValidatorMiddlware>(); }
         );
-        
+
         return services;
     }
 
     public static IServiceProvider RegisterValitor<T>(this IServiceProvider provider)
     {
         var validator = provider.GetRequiredService<ValidateService>();
-        
+
         var validatorInstance = ActivatorUtilities.GetServiceOrCreateInstance(provider, typeof(T));
-        
+
         validator.addValidator((dynamic)validatorInstance);
-        
+
         return provider;
     }
 }
